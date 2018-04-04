@@ -9,7 +9,6 @@ defmodule Issues.Social.Task do
     field :title, :string
     field :work_time, :integer
     belongs_to :assignee, Issues.Accounts.User
-    belongs_to :issuer, Issues.Accounts.User
 
     timestamps()
   end
@@ -17,7 +16,7 @@ defmodule Issues.Social.Task do
   @doc false
   def changeset(task, attrs) do
     task
-    |> cast(attrs, [:title, :description, :work_time, :done, :assignee_id, :issuer_id])
-    |> validate_required([:title, :description, :assignee_id, :issuer_id])
+    |> cast(attrs, [:title, :description, :work_time, :done, :assignee_id])
+    |> validate_required([:title, :description, :assignee_id])
   end
 end

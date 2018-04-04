@@ -8,12 +8,10 @@ defmodule Issues.Repo.Migrations.CreateTasks do
       add :work_time, :integer, default: 0
       add :done, :integer, default: 0
       add :assignee_id, references(:users, on_delete: :delete_all), null: false
-      add :issuer_id, references(:users, on_delete: :delete_all), null: false
 
       timestamps()
     end
 
     create index(:tasks, [:assignee_id])
-    create index(:tasks, [:issuer_id])
   end
 end

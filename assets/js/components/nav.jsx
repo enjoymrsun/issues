@@ -58,22 +58,10 @@ function Nav(props) {
       </span>
       <ul className="navbar-nav mr-auto">
         <NavItem>
-          <NavLink to="/" exact={true} activeClassName="active" className="nav-link">Welcome</NavLink>
+          <NavLink to="/" exact={true} activeClassName="active" className="nav-link">All Tasks</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/tasks/new" exact={true} activeClassName="active" className="nav-link">New Task</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/my_tasks" exact={true} activeClassName="active" className="nav-link">My Tasks</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/my_send_out_tasks" exact={true} activeClassName="active" className="nav-link">My Send-Out Tasks</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/tasks" exact={true} activeClassName="active" className="nav-link">All Tasks</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/users/new" exact={true} activeClassName="active" className="nav-link">Register</NavLink>
+          <NavLink to="/users" href="#" className="nav-link">All Users</NavLink>
         </NavItem>
       </ul>
       { session_info }

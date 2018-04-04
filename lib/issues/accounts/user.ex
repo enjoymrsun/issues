@@ -4,10 +4,9 @@ defmodule Issues.Accounts.User do
 
 
   schema "users" do
-    field :email, :string
     field :name, :string
     field :password_hash, :string
-    
+
     field :password, :string, virtual: true
 
     timestamps()
@@ -16,7 +15,7 @@ defmodule Issues.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :name, :password])
-    |> validate_required([:email])
+    |> cast(attrs, [:name, :password])
+    |> validate_required([:name])
   end
 end
