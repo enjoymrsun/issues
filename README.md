@@ -1,20 +1,12 @@
 # Issues
+[Link to Issues!](https://tasks3.enjoymyweb.com)
+#### A SPA App ^ ^
 
-To start your Phoenix server:
+## Design choices needed to be aware of
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+1. People will directly register using their name, these names should be unique and no need to provide email address.
+2. Users' passwords will be stored as hashed version in database.
+3. The time that an assignee can show their work on a task is unlimited, but must be multiple of 15 minutes.
+4. All login users can assign tasks to all the other users and himself/herself.
+5. All login users can edit all the tasks they saw: change title, description, assignee, work time and mark as completion or not.
+6. Users login via Phoenix.Token and needs to login again if user closes the web tab page, which makes the app more secure.
