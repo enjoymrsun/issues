@@ -1,6 +1,6 @@
 # Issues
 [Link to Issues!](https://tasks3.enjoymyweb.com)
-#### A SPA App ^ ^
+#### A Single Page Application ^ ^
 
 ## Design choices needed to be aware of
 
