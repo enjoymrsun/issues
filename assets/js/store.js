@@ -11,6 +11,7 @@ import deepFreeze from 'deep-freeze';
  *     work_time: null,
  *     done: null,
  *     assignee_id: null,
+ *     token: ""
  *   }
  *   user_form: {
  *     name: "",
@@ -68,7 +69,7 @@ import deepFreeze from 'deep-freeze';
      case 'UPDATE_TASK_FORM':
        return Object.assign({}, state, action.data);
      case 'CLEAR_TASK_FORM':
-       return empty_form;
+       return Object.assign({}, state, empty_task_form);
      case 'SET_TOKEN':
        return Object.assign({}, state, action.token);
      default:
@@ -81,7 +82,7 @@ import deepFreeze from 'deep-freeze';
      case 'UPDATE_USER_FORM':
       return Object.assign({}, state, action.data);
      case 'CLEAR_USER_FORM':
-      return empty_form;
+      return Object.assign({}, state, empty_user_form);
      case 'SET_TOKEN':
       return Object.assign({}, state, action.token);
      default:
