@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from './nav';
 import AllTasks from './all-tasks';
-import TaskPostForm from './task-post-form';
-import UserPostForm from './user-post-form';
+import TaskForm from './task-form';
+import UserForm from './user-form';
 
 export default function issues_init(store) {
   ReactDOM.render(
@@ -24,7 +24,8 @@ let Issues = connect((state) => state)((props) => {
         <Nav />
         <Route path="/" exact={true} render={() =>
           <div>
-            <TaskPostForm />
+            <UserForm />
+            <TaskForm />
             <AllTasks tasks={props.tasks} />
           </div>
         } />

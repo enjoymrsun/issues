@@ -18,14 +18,10 @@ defmodule IssuesWeb.Router do
 
     get "/", PageController, :index
     get "/users", PageController, :index
-    get "/users/new", PageController, :index
     get "/users/:id", PageController, :index
     get "/tasks", PageController, :index
-    get "/tasks/new", PageController, :index
     get "/tasks/:id", PageController, :index
-    get "/my_tasks", PageController, :index
-    get "/my_send_out_tasks", PageController, :index
-    
+
   end
 
   # Other scopes may use custom stacks.
@@ -33,5 +29,6 @@ defmodule IssuesWeb.Router do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
     resources "/tasks", TaskController, except: [:new, :edit]
+    post "/token", TokenController, :create
   end
 end

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 import api from '../api';
 
-function TaskPostForm(props) {
+function TaskForm(props) {
   console.log("props@TaskPostForm", props);
 
   function update(ev) {
@@ -12,7 +12,7 @@ function TaskPostForm(props) {
     let data = {};
     data[tgt.attr('name')] = tgt.val();
     let action = {
-      type: 'UPDATE_FORM',
+      type: 'UPDATE_TASK_FORM',
       data: data,
     };
     console.log(action);
@@ -20,13 +20,13 @@ function TaskPostForm(props) {
   }
 
   function submit(ev) {
-    api.submit_task(props.form);
-    console.log(props.form);
+    api.submit_task(props.task_form);
+    console.log(props.task_form);
   }
 
   function clear(ev) {
     props.dispatch({
-      type: 'CLEAR_FORM',
+      type: 'CLEAR_TASK_FORM',
     });
   }
 
@@ -76,4 +76,4 @@ function state2props(state) {
   };
 }
 
-export default connect(state2props)(TaskPostForm);
+export default connect(state2props)(TaskForm);
