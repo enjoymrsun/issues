@@ -26,6 +26,7 @@ function TaskForm(props) {
     // console.log(ev);
     console.log(props);
     api.submit_task(props.task_form);
+    clear(ev);
   }
 
   function clear(ev) {

@@ -21,6 +21,7 @@ function UserForm(props) {
   function submit(ev) {
     api.submit_user(props.user_form);
     console.log(props.user_form);
+    clear(ev);
   }
 
   function clear(ev) {
