@@ -16,7 +16,7 @@ defmodule Seeds do
   alias Issues.Social.Task
 
   def run do
-    p = Comeonin.Argon2.hashpwsalt("webdev5610")
+    p = Comeonin.Argon2.hashpwsalt("xiangshi")
 
     Repo.delete_all(User)
     a = Repo.insert!(%User{ name: "alice", password_hash: p })

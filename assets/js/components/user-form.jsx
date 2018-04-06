@@ -41,7 +41,6 @@ function UserForm(props) {
              value={props.user_form.password} onChange={update} />
     </FormGroup>
     <Button onClick={submit} color="primary">Create a User</Button> &nbsp;
-    <Button onClick={clear}>Clear</Button>
   </div>;
 }
 

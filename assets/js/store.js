@@ -54,7 +54,7 @@ import deepFreeze from 'deep-freeze';
    description: "",
    work_time: 0,
    done: 0,
-   assignee_id: "",
+   assignee_id: -1,
    token: ""
  };
 

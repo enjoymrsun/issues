@@ -8,7 +8,8 @@ defmodule Issues.Social.Task do
     field :done, :integer
     field :title, :string
     field :work_time, :integer
-    belongs_to :assignee, Issues.Accounts.User
+    field :assignee_id, :integer
+    # belongs_to :assignee, Issues.Accounts.User
 
     timestamps()
   end

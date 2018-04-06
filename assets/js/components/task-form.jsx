@@ -26,7 +26,6 @@ function TaskForm(props) {
     // console.log(ev);
     console.log(props);
     api.submit_task(props.task_form);
-    clear(ev);
   }
 
   function clear(ev) {
@@ -60,22 +59,12 @@ function TaskForm(props) {
       <Input type="number" name="work_time" step={15} min={0}
             value={props.task_form.work_time} onChange={update}/>
     </FormGroup>
-    <FormGroup tag="fieldset">
-      <FormGroup check>
-        <Label check for="done">
-          <Input type="radio" name="done" value={1} />{' '}
-          Finished this Task
-        </Label>
-      </FormGroup>
-      <FormGroup check>
-        <Label check for="done">
-          <Input type="radio" name="done" value={0} />{' '}
-          Not Finished this Task
-        </Label>
-      </FormGroup>
+    <FormGroup>
+      <Label for="done">Done (1 for Yes | 0 for No)</Label>
+      <Input type="number" name="done"
+            value={props.task_form.done} onChange={update}/>
     </FormGroup>
     <Button onClick={submit} color="primary">Submit</Button> &nbsp;
-    <Button onClick={clear}>Clear</Button>
   </div>;
 }
 

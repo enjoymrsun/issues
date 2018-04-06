@@ -15,6 +15,7 @@ defmodule IssuesWeb.TaskView do
       title: task.title,
       description: task.description,
       work_time: task.work_time,
-      done: task.done}
+      done: task.done,
+      assignee_id: task.assignee_id}
   end
 end
