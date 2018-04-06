@@ -4,7 +4,7 @@ import { Button, FormGroup, Label, Input } from 'reactstrap';
 import api from '../api';
 
 function UserForm(props) {
-  console.log("props@UserForm", props);
+  // console.log("props@UserForm", props);
 
   function update(ev) {
     let tgt = $(ev.target);
@@ -33,19 +33,19 @@ function UserForm(props) {
     <h2>New User</h2>
     <FormGroup>
       <Input type="text" name="name" placeholder="name"
-             value={this.props.user_form.email} onChange={update} />
+             value={props.user_form.name} onChange={update} />
     </FormGroup>
     <FormGroup>
       <Input type="password" name="password" placeholder="password"
-             value={this.props.user_form.password} onChange={update} />
+             value={props.user_form.password} onChange={update} />
     </FormGroup>
-    <Button onClick={submit} color="primary">Create</Button> &nbsp;
+    <Button onClick={submit} color="primary">Create a User</Button> &nbsp;
     <Button onClick={clear}>Clear</Button>
   </div>;
 }
 
 function state2props(state) {
-  console.log("rerender@UserForm", state);
+  // console.log("rerender@UserForm", state);
   return {
     user_form: state.user_form,
     users: state.users,

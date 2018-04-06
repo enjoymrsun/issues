@@ -19,7 +19,7 @@ defmodule Issues.Social do
   """
   def list_tasks do
     Repo.all(Task)
-    |> Repo.preload([:assignee, :issuer])
+    |> Repo.preload([:assignee])
   end
 
   @doc """
@@ -38,7 +38,7 @@ defmodule Issues.Social do
   """
   def get_task!(id) do
     Repo.get!(Task, id)
-    |> Repo.preload([:assignee, :issuer])
+    |> Repo.preload([:assignee])
   end
 
   def get_my_tasks(current_user) do
@@ -46,16 +46,16 @@ defmodule Issues.Social do
     query = from t in Task, where: t.assignee_id == ^id
 
     Repo.all(query)
-    |> Repo.preload([:assignee, :issuer])
+    |> Repo.preload([:assignee])
   end
 
-  def get_my_send_out_tasks(current_user) do
-    %{"id": id} = current_user
-    query = from t in Task, where: t.issuer_id == ^id
-
-    Repo.all(query)
-    |> Repo.preload([:assignee, :issuer])
-  end
+  # def get_my_send_out_tasks(current_user) do
+  #   %{"id": id} = current_user
+  #   query = from t in Task, where: t.issuer_id == ^id
+  #
+  #   Repo.all(query)
+  #   |> Repo.preload([:assignee, :issuer])
+  # end
 
   @doc """
   Creates a task.
@@ -70,9 +70,10 @@ defmodule Issues.Social do
 
   """
   def create_task(attrs \\ %{}) do
-    %Task{}
+    {:ok, task} = %Task{}
     |> Task.changeset(attrs)
     |> Repo.insert()
+    {:ok, Repo.preload(task, :assignee)}
   end
 
   @doc """

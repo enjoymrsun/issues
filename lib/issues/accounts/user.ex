@@ -15,7 +15,7 @@ defmodule Issues.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :password])
+    |> cast(attrs, [:name, :password_hash])
     |> validate_required([:name])
   end
 end

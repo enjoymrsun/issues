@@ -4,9 +4,12 @@ import { Button, FormGroup, Label, Input } from 'reactstrap';
 import api from '../api';
 
 function TaskForm(props) {
-  console.log("props@TaskPostForm", props);
+  // console.log("props@TaskPostForm", props);
 
   function update(ev) {
+    // console.log("Update the Task Form");
+    // console.log(ev);
+
     let tgt = $(ev.target);
 
     let data = {};
@@ -15,13 +18,14 @@ function TaskForm(props) {
       type: 'UPDATE_TASK_FORM',
       data: data,
     };
-    console.log(action);
     props.dispatch(action);
   }
 
   function submit(ev) {
+    console.log("Submit the Task Form");
+    // console.log(ev);
+    console.log(props);
     api.submit_task(props.task_form);
-    console.log(props.task_form);
   }
 
   function clear(ev) {
@@ -29,9 +33,6 @@ function TaskForm(props) {
       type: 'CLEAR_TASK_FORM',
     });
   }
-
-  // let times = [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240];
-  // times = _.map(times, (tt, ii) => <option key={ii} value={tt}>{tt}</option>);
 
   let users = _.map(props.users, (uu) => <option key={uu.id} value={uu.id}>{uu.name}</option>);
 
@@ -46,22 +47,31 @@ function TaskForm(props) {
     <FormGroup>
       <Label for="title">Title</Label>
       <Input type="text" name="title" placeholder="title"
-            value={this.props.task_form.title} onChange={this.update} />
+            value={props.task_form.title} onChange={update} />
     </FormGroup>
     <FormGroup>
       <Label for="description">Description</Label>
       <Input type="textarea" name="description" placeholder="task description"
-            value={this.props.task_form.description} onChange={this.update} />
+            value={props.task_form.description} onChange={update} />
     </FormGroup>
     <FormGroup>
       <Label for="work_time">Work Time</Label>
       <Input type="number" name="work_time" step={15} min={0}
-            value={this.props.task_form.work_time} onChange={this.update}/>
+            value={props.task_form.work_time} onChange={update}/>
     </FormGroup>
-    <FormGroup>
-      <Label for="done">Done</Label>
-      <Input type="checkbox" name="done" value={0} checked={1}
-            value={this.props.task_form.done} onChange={this.update}/>
+    <FormGroup tag="fieldset">
+      <FormGroup check>
+        <Label check for="done">
+          <Input type="radio" name="done" value={1} />{' '}
+          Finished this Task
+        </Label>
+      </FormGroup>
+      <FormGroup check>
+        <Label check for="done">
+          <Input type="radio" name="done" value={0} />{' '}
+          Not Finished this Task
+        </Label>
+      </FormGroup>
     </FormGroup>
     <Button onClick={submit} color="primary">Submit</Button> &nbsp;
     <Button onClick={clear}>Clear</Button>
@@ -69,7 +79,7 @@ function TaskForm(props) {
 }
 
 function state2props(state) {
-  console.log("rerender@PostForm", state);
+  // console.log("rerender@PostForm", state);
   return {
     task_form: state.task_form,
     users: state.users,

@@ -64,7 +64,7 @@ import deepFreeze from 'deep-freeze';
    token: ""
  };
 
- function taskform(state = empty_task_form, action) {
+ function task_form(state = empty_task_form, action) {
    switch (action.type) {
      case 'UPDATE_TASK_FORM':
        return Object.assign({}, state, action.data);
@@ -77,7 +77,7 @@ import deepFreeze from 'deep-freeze';
    }
  }
 
- function userform(state = empty_user_form, action) {
+ function user_form(state = empty_user_form, action) {
    switch (action.type) {
      case 'UPDATE_USER_FORM':
       return Object.assign({}, state, action.data);
@@ -114,12 +114,12 @@ import deepFreeze from 'deep-freeze';
  }
 
  function root_reducer(state0, action) {
-   console.log("reducer", action);
+   // console.log("reducer", action);
    // {posts, users, form} is ES6 shorthand for
    // {posts: posts, users: users, form: form}
-   let reducer = combineReducers({tasks, users, taskform, userform, token, login});
+   let reducer = combineReducers({tasks, users, task_form, user_form, token, login});
    let state1 = reducer(state0, action);
-   console.log("state1", state1);
+   // console.log("state1", state1);
    return deepFreeze(state1);
  };
 

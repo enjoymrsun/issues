@@ -12,8 +12,10 @@ defmodule IssuesWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    %{name: real_name, password: real_password} = user_params
+    %{"name" => real_name, "password" => real_password} = user_params
     hashed_password = Comeonin.Argon2.hashpwsalt(real_password)
+    IO.puts "<<<<<<<<<<<<<Hashed Password>>>>>>>>>>>>>"
+    IO.inspect hashed_password
 
     new_user_params = %{name: real_name, password_hash: hashed_password}
 
